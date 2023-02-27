@@ -1,4 +1,3 @@
-
 import java.util.Scanner;
   class Fd{
      double amount;
@@ -133,7 +132,7 @@ class Rd{
       int maturity_period;
       double monthly_amount;
       int age_of_accont_holder;
-      double calculate_intrest(double amount,int maturity_period,double monthly_amount,int age_of_accont_holder){
+      double calculate_intrest(double amount,int maturity_period,int age_of_accont_holder){
 double Earning=0.00;
               if(maturity_period>=6&&maturity_period<9){
                  if(age_of_accont_holder<60){
@@ -200,7 +199,7 @@ double Earning=0.00;
                   Earning=(amount*intrestRate)/100;
               }
           }
-else {
+else if(maturity_period<6){
               System.out.println("sorry we dont have plan for less than 6 month ");
           }
 
@@ -214,7 +213,7 @@ class sb{
     double intrest_rate;
     double intrest_earned;
     int no_of_days;
-    double calculated_intrest(double intrest_rate,int no_of_days,double amount){
+    double calculated_intrest(int no_of_days,double amount){
         if(no_of_days>=7&&no_of_days<=14){
             intrest_rate=6.50;
             intrest_earned=(amount*intrest_rate)/100;
@@ -237,19 +236,78 @@ public class account {
        double amount;
        int age;
        int no_of_days;
-        System.out.println(" --------------------------------------------------------------------");
-        System.out.println("                          ----------                                  ");
-                    System.out.println("Enter the amount of which you want to create fd: ");
+       int maturity_period;
+       int age_of_accont_holder;
+      //  System.out.println(" --------------------------------------------------------------------");
+       // System.out.println("                          ----------                                  ");
+        //  System.out.println("Enter the amount of which you want to create fd: ");
+        // amount=sc.nextDouble();
+        // System.out.println(" Enter  the age of customer : ");
+        // age=sc.nextInt();
+        // System.out.println("Enter  the number of days you want to create FD ");
+        // no_of_days=sc.nextInt();
+
+        // Fd f=new Fd();
+        // System.out.println("Total intrest earned by the customer is "+ f.calucate_intrest(amount,no_of_days,age);
+
+   System.out.println("           ----------------------------------");
+   System.out.println("                  ------MENU------");
+   System.out.println("1: Intrest calculator  FD");
+   System.out.println("2: Intrest calculator SB");
+   System.out.println("3: Intrest calculator RD");
+   System.out.println("4: Exit");
+           System.out.println(" enter the option you want tpo select from 0----4");
+        int option= sc.nextInt();
+        
+        switch(option){
+            case 1:
+                 System.out.println("Enter the amount of which you want to create fd: ");
         amount=sc.nextDouble();
-                    System.out.println(" Enter  the age of customer : ");
+        System.out.println(" Enter  the age of customer : ");
         age=sc.nextInt();
-                    System.out.println("Enter  the number of days you want to create FD ");
+        System.out.println("Enter  the number of days you want to create FD ");
         no_of_days=sc.nextInt();
 
         Fd f=new Fd();
-        System.out.println("Total intrest earned by the customer is "+ f.calucate_intrest(amount,no_of_days,age)
-);
+        System.out.println("Total intrest earned by the customer is "+ f.calucate_intrest(amount,no_of_days,age));
+             break;
+             //------>>>
+             //  second case 
+             //------
+                case 2:
+                     System.out.println("Enter the amount of which you want to create  sb: ");
+        amount=sc.nextDouble();
+      
+        System.out.println("Enter  the number of days you want to create sb ");
+        no_of_days=sc.nextInt();
 
+        sb s = new sb();
+        System.out.println("Total intrest earned by the customer is "+ s.calculated_intrest(no_of_days,amount));
+        break;
+// third case  
+//----------------------------------
+
+case 3:
+                    System.out.println("Enter the amount of which you want to create  RD: ");
+        amount=sc.nextDouble();
+      
+        System.out.println("Enter the maturity peroid in month of which  you want to create RD ");
+         maturity_period=sc.nextInt();
+System.out.println(" Enter  the age of customer : ");
+        age_of_accont_holder=sc.nextInt();
+        Rd r = new Rd();
+        System.out.println("Total intrest earned by the customer is "+ r.calculate_intrest(amount,maturity_period,age_of_accont_holder));
+        break;      
+            
+           // double calculate_intrest(double amount,int maturity_period,int age_of_accont_holder) 
+            
+            
+            case 4:
+                System.out.println(" you exit the main menu ");
+                break;
+        }
+
+    
 
 
     }
