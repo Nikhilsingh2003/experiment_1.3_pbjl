@@ -1,3 +1,8 @@
+// this is a menu driven program in java to calculate the intrest depending on the types of account and the age of customer . customer whose age is more than or adult will enjoy more 
+// intrest rate .
+
+
+
 import java.util.Scanner;
   class Fd{
      double amount;
